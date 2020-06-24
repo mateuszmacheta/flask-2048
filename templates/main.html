@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1 style="color: red; font-weight: bold;">{{ message }}</h1>
+<h1 style="color: orange; font-weight: bold;">Key {{ key}}</h1>
+<h1 style="color: green; font-weight: bold;">Score {{ score }}</h1>
+<link rel="stylesheet" href="style.css">
+<table id="game2048__area" class="game2048__area" tabindex="0">
+    <!-- 
+    <tr>
+            <td class="cell">
+                <div style="display: block; height: 100%; width: 100%;" class="val-2048">16</div>
+            </td>
+            <td class="cell"></td>
+            <td class="cell"></td>
+            <td class="cell"></td>
+        </tr>-->
+    <tbody>
+        {% for row in gamestate %}
+        <tr>
+        {% for cell in row %}
+            <td class="cell">
+            {% if cell != 0 %}
+            <div style="display: block; height: 100%; width: 100%;" class="val-{{ cell }}">{{ cell }}</div>     
+            {% endif %}
+            </td>
+        {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="?key=right">Right</a>
+<a href="?key=left">Left</a>
+<a href="?key=up">Up</a>
+<a href="?key=down">Down</a>
+{% endblock %}
