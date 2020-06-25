@@ -1,3 +1,4 @@
 venv/
+__pycache__
 flask-2048.zip
 readme.txt
